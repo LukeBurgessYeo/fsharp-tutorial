@@ -18,9 +18,9 @@ let isEven n = n % 2 = 0
 ```
 `isEven` has type `int -> bool` as we might expect. Try applying this function to several different numbers to check that it does indeed detect even numbers correctly.
 
-What if we wanted to check if a number was not divisible by 5? We could use our knowledge of how modulus works are check if the number has a remainder of 1, 2, 3 or 4, but this would be rather verbose. Instead, we should use the `not` function which is build into F#.
+What if we wanted to check if a number was not divisible by 5, for example? We could use our knowledge of how modulus works and check if the number has a remainder of 1, 2, 3 or 4, but this would be rather verbose. Instead, we should use the `not` function which is built into F#.
 
-`not` has type `bool -> bool` and returns the negation of the input (so `not true` returns `false` for example).
+`not` has type `bool -> bool` and returns the negation of the input (e.g. `not true` returns `false`).
 
 Let's use this to write a function which checks if a number is not a multiple of 5:
 ```fsharp
@@ -32,7 +32,7 @@ Notice the blue squiggly line that VS Code puts underneath the function body. If
 
 >`not (a = b)` might be able to be refactored into `a <> b`
 
-VS Code is telling us that we should use the "not equals" operator (`<>`) rather than passing a value into the `not` function. This is a sensible suggestion - it will make our code easier to read and eliminate the need for pesky brackets:
+VS Code is telling us that we should use the "not equals" operator (`<>`) rather than passing a value into the `not` function. This is a sensible suggestion - it will make our code easier to read and eliminate the need for those pesky brackets:
 ```fsharp
 let notMultipleOf5 n = n % 5 <> 0
 ```
