@@ -3,6 +3,7 @@
 ## Tools
 
 We will need to download and install some software in order to write, compile and run our F# code. The tools are:
+
 - [VS Code](https://code.visualstudio.com/Download) - the best text editor for writing F# code in
 - [Visual Studio Build Tools 2019](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019) - which allows VS Code to understand F#
 - [Dotnet Core](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install) - which allows us to build and run F# code
@@ -20,15 +21,19 @@ Firstly, create a folder somewhere (perhaps inside your `Documents` folder) call
 Next, create a file by selecting the "Explorer" tab at the top of the left-hand side menu and clicking the "New File" button in the pane which opens up, or by right-clicking inside the pane and selecting "New File". Name this file `Script.fsx`. The `.fsx` file extension is important so that VS Code knows you are trying to create an F# script file.
 
 Select `Script.fsx` to open it in the main window and paste the following code into it:
+
 ```fsharp
 printfn "Hello World!"
 ```
+
 This is the most simple "Hello World!" program in F#. To run the code, highlight it and press `ALT+ENTER` to send the code to "F# Interactive". This will open a terminal at the bottom of the window with "F# Interactive" running. The code will then, hopefully, execute and you should see the following output:
+
 ```
 > printfn "Hello World!";;
 Hello World!
 val it : unit = ()
 ```
+
 As you can see, the message "Hello World!" was printed to the console and we have successfully executed our first F# program. The line before that, starting with a `>`, shows the code that was executed. Don't worry about the last line, we will cover what that all means later.
 
 ## Troubleshooting

@@ -25,6 +25,7 @@ That being said, there is no reason why you can't learn to program from scratch 
 Before we get stuck in, it's worth listing a few resources to go to if you're having trouble at any point. Looking up your problem online is a tried and tested solution to any programming problem (until you start trying to solve problems which no one else has thought about yet, then you're on your own!).
 
 The skill is in knowing which terms to search for and which resources are likely to have the answer to your question. Here are a few places you can rely on:
+
 - [fsharp.org](https://fsharp.org/learn.html) has a list of learning resources
 - [fsharp for fun and profit](https://fsharpforfunandprofit.com/learning-fsharp/) is _the_ F# blog
 - [docs.microsoft.com](https://docs.microsoft.com/en-us/dotnet/fsharp/) is the official documentation from Microsoft
