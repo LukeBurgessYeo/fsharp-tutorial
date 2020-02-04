@@ -100,12 +100,13 @@ checkCoords 10 12
 There is also a "triple forward pipe" `|||>` which works on length three tuples. These operators aren't used too frequently, but now you know what they are if you do come across them.
 
 # Exercises
+
 Let's practice using tuples. Complete the following exercises:
 
 1. Without running the code, what is the type of the following value:
-    ```fsharp
-    let tuple = ("hello", "world", true)
-    ```
+   ```fsharp
+   let tuple = ("hello", "world", true)
+   ```
 2. Write a function which takes a tuple of three `int`s and returns their sum.
 3. Write a function which takes a length two tuple and returns the same tuple with the values swapped.
 4. Write a function which takes a length two tuple and a value and returns a length three tuple with the values from the input tuple in as the first two elements, and the single value as the third element in the tuple.
