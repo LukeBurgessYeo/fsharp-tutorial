@@ -76,7 +76,7 @@ Notice `users` has type `Map<string, int>` which tells us that the keys are `str
 val users : Map<string,int> = map [("Alice", 1234); ("Bob", 4425)]
 ```
 
-Notice how F# Interactive prints out `users` - as a list of tuples. This suggests that we can also use `Map.ofList` to create maps, just like we did with sets, but this time using a list of tuples to represent out key-value pairs:
+Notice how F# Interactive prints out `users` - as a list of tuples. This suggests that we can also use `Map.ofList` to create maps, just like we did with sets, but this time using a list of tuples to represent our key-value pairs:
 
 ```fsharp
 let anotherMap =
@@ -94,19 +94,19 @@ Just as with sets, we do not get any duplicate entries. We only get the first `"
 
 ### Working With Maps
 
-As you might expect, there is also a `Map` modules with similar functions to the `List` and `Set` modules (like `Map.map`, `Map.filter`, `Map.fold`, etc.).
+As you might expect, there is also a `Map` module with similar functions to the `List` and `Set` modules (like `Map.map`, `Map.filter`, `Map.fold`, etc.).
 
 The map specific functions which are of most interest are:
 
 | Function      | Description                                       |
 | :------------ | :------------------------------------------------ |
 | `Map.find`    | Gets an element from a map by key                 |
-| `Map.tryFind` | Safer version of `Map.find` - returns an `option` |
+| `Map.tryFind` | Safer version of `Map.find` - returns an `Option` |
 | `Map.remove`  | Removes an element from a map by key              |
 
 `Map.remove` in fact returns a new map with the element removed, see below:
 
-```
+``` {highlight: [2, 5]}
 > users |> Map.remove "Alice";;
 val it : Map<string,int> = map [("Bob", 4425)]
 

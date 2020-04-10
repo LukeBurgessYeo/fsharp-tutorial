@@ -10,7 +10,7 @@ let stringAndInt = ("hello", 26)
 let intAndBoolAndString = (18, false, "goodbye")
 ```
 
-Tuples are created simply by placing whatever values you like, separated by commas, in between two brackets. Notice that `stringAndInt` has type `string * int`, and that `intAndBoolAndString` has type `int * bool * string`. The choice of `*` as the symbol for tuples is no accident - tuples are very much like multiplying types.
+Tuples are created simply by placing whatever values you like, separated by commas, in between two brackets `(` `)`. Notice that `stringAndInt` has type `string * int`, and that `intAndBoolAndString` has type `int * bool * string`. The choice of `*` as the symbol for tuples is no accident - tuples are very much like multiplying types.
 
 Tuples can be as long as you like although they do become more and more awkward to work with the longer they get.
 
@@ -36,7 +36,7 @@ This is the same function but written much more concisely. Although we can pass 
 
 We don't, in fact, even need to write the above function as F# already has this function built in. It's called `fst` and returns the first value of a length two tuple. Let's try it on `stringAndInt`:
 
-```
+``` {highlight: [2]}
 > fst stringAndInt;;
 val it : string = "hello"
 ```
@@ -49,7 +49,7 @@ let snd (_, b) = b
 
 Here's what happens if we try it on `stringAndInt`:
 
-```
+``` {highlight: [2]}
 > snd stringAndInt;;
 val it : int = 26
 ```
@@ -72,7 +72,7 @@ let testTuple tuple =
     | _ -> printfn "values are the same"
 ```
 
-`testTuple` has type `'a * 'a -> unit` (where `'a` is some type which can be used with `>` and `<`). This technique is particularly useful if your functions takes two parameters and you need to test both together:
+`testTuple` has type `'a * 'a -> unit` (where `'a` is some type which can be used with `>` and `<`). This technique is particularly useful if your function takes two parameters and you need to test both together:
 
 ```fsharp
 let checkCoords x y =

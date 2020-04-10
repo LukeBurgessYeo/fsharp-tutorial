@@ -21,7 +21,7 @@ let myTriangle = Triangle
 let myCircle = Circle
 ```
 
-Notice that all three of these values have type `Shape`. We can also give each of the options in our discriminated union some data which they can carry by putting `of` and then the type after the name of each case. For example, we could give the side lengths of our shapes:
+Notice that all three of these values have type `Shape`. We can also choose to give options in our discriminated union some data which they can carry by putting `of` and then the type after the name of each case. For example, we could give the side lengths (or radius in the case of the circle) of our shapes:
 
 ```fsharp
 type Shape =
@@ -54,7 +54,7 @@ let area shape =
         sqrt <| p * (p - a) * (p - b) * (p - c)
 ```
 
-This function has type `Shape -> float` as we might expect. The area of a square is just the side length squared so that was easy enough. The area of a circle is $\pi r^{2}$, $r$ is the radius of the circle which we stored in the definition of `Circle` and we can get the value of $\pi$ from `System.Math.PI`. However, we normally write `open System` at the top of our files so that we don't have to type `System.` before anything from the `System` "namespace" (and then send the line `open System` to F# Interactive), so you may wish to do that instead.
+This function has type `Shape -> float` as we might expect. The area of a square is just the side length squared so that was easy enough. The area of a circle is π r², r is the radius of the circle which we stored in the definition of `Circle` and we can get the value of π from `System.Math.PI`. However, we normally write `open System` at the top of our files so that we don't have to type `System.` before anything from the `System` "namespace" (and then send the line `open System` to F# Interactive), so you may wish to do that instead.
 
 Calculating the area of a triangle from it's three side lengths is a little more involved. The formula we are using is **[Heron's Formula](https://www.mathopenref.com/heronsformula.html)**:
 
@@ -71,11 +71,11 @@ $$
 \end{document}
 </latex-js>
 
-So first we define `p` as half the perimeter and then use the built in `sqrt` function to calculate the square root of the product in the above formula.
+First we define `p` as half the perimeter and then use the built in `sqrt` function to calculate the square root of the product in the above formula.
 
 Let's test our function:
 
-```
+``` {highlight: [2, 5, 8]}
 > area mySquare;;
 val it : float = 25.0
 
@@ -86,16 +86,16 @@ val it : float = 28.27433388
 val it : float = 6.0
 ```
 
-## The `option` Type
+## The `Option` Type
 
-Discriminated unions are so important that F# even has one built in. It is called option and has two cases: Some 'a and None. Here are some examples:
+Discriminated unions are so important that F# even has some built in. One such discriminated union is called `Option` and has two cases: `Some 'a` and `None`. For example:
 
 ```fsharp
 let someInt = Some 25
 let nothing = None
 ```
 
-Notice that `someInt` has type `int option` but nothing has type `'a option`. The compiler has no way of knowing what `'a` should be as we have only used the `None` case. However, we can pass both these values into a function which takes an `int option` parameter:
+Notice that `someInt` has type `int option` but `nothing` has type `'a option`. The compiler has no way of knowing what `'a` should be as we have only used the `None` case. However, we can pass both these values into a function which takes an `int option` parameter:
 
 ```fsharp
 let trySquare maybeInt =
@@ -106,7 +106,7 @@ let trySquare maybeInt =
 
 `trySquare` has type `int option -> int` and returns the square of the number which is passed in in the case of a `Some` value and `0` if a `None` is passed in. Here is what happens if we pass in our previously defined values:
 
-```
+``` {highlight: [2, 5]}
 > trySquare someInt;;
 val it : int = 625
 
@@ -114,7 +114,7 @@ val it : int = 625
 val it : int = 0
 ```
 
-The main reason for the `option` type is so that we can safely check things like whether there is an element in a list. Of course, one way to do this would be to use `List.exists` first (which returns a `bool` telling us if such an element is in the list) and then write two different cases for `true`/`false`. However, a much easier way to do this same operation is to use `List.tryFind` which returns an `option`. We can then pattern match on the `option`, getting the value itself in the `Some` case and handling the `None` case however we like. Here's an example:
+The main reason for the `Option` type is so that we can safely check things like whether there is an element in a list. Of course, one way to do this would be to use `List.exists` first (which returns a `bool` telling us if such an element is in the list) and then write two different cases for `true`/`false`. However, a much easier way to do this same operation is to use `List.tryFind` which returns an `Option`. We can then pattern match on the `Option`, getting the value itself in the `Some` case and handling the `None` case however we like. Here's an example:
 
 ```fsharp
 let tryGetEvenNumber numbers =
@@ -130,7 +130,7 @@ This function has type `int list -> unit` and prints out the first even number i
 
 Here's what happens if we pass in a list with an even number, and one without:
 
-```
+``` {highlight: [2, 6]}
 > tryGetEvenNumber [ 1 .. 2 .. 11 ];;
 No even numbers found.
 val it : unit = ()
@@ -140,7 +140,7 @@ No even numbers found.
 val it : unit = ()
 ```
 
-There are plenty of other built in F# functions with "try" in the name (`List.tryItem` for example) which generally return an `option`. Now that you know how to use these functions it is recommended that you use them whenever possible and handle both the `Some` and `None` cases. For example, your code will just stop if you use `List.find` and no element is found, however if you use `List.tryFind`, the compiler will force you to handle the case when an element isn't found, which is a good habit to have.
+There are plenty of other built in F# functions with "try" in the name (`List.tryItem` for example) which generally return an `Option`. Now that you know how to use these functions it is recommended that you use them whenever possible and handle both the `Some` and `None` cases. For example, your code will just stop if you use `List.find` and no element is found, however if you use `List.tryFind`, the compiler will force you to handle the case when an element isn't found, which is a good habit to have.
 
 ## Exercises
 
