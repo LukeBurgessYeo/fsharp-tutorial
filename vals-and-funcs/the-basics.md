@@ -69,7 +69,7 @@ The other primitive types which are of interest are:
 
 Let's start with `string`s. These are the type that is used to represent written words (in English, for example). Next, `bool`s are used to represent either `true` or `false`. They cannot be anything else, so if you have something of type `bool` you know it is either `true` or `false`.
 
-The last type, `unit`, is a little strange. It represents the lack of any other type. It is useful, however, because everything in F# must have a type. This includes statements like `printfn "Hello World!"` which does not have a natural type like the number 5, or a string like "hello world". Therefore it is given the type `unit`. `unit` is treated just like any other type in F# and so cannot interact with other types.
+The last type, `unit`, is a little strange. `unit` only has one value - `()` (as opposed to the two values which `bool` can be) and is used to represent the lack of any other type. It is useful because everything in F# must have a type. This includes statements like `printfn "Hello World!"` which does not have a natural type like the number 5, or a string like "hello world". Therefore it is given the type `unit`. `unit` is treated just like any other type in F# and so cannot interact with other types.
 
 ## Exercises
 

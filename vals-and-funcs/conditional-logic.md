@@ -8,7 +8,7 @@ In F# we use a technique called "pattern matching" to achieve this. Pattern matc
 
 ## Introducing Pattern Matching
 
-Let's write a function which takes an int and writes a different message to the console depending on whether the input is greater than, or less than 100:
+Let's write a function which takes an `int` and writes a different message to the console depending on whether the input is greater than, or less than 100:
 
 ```fsharp
 let isItSmall n =
@@ -68,11 +68,9 @@ Each case will be matched if the input string `language` is exactly the same as 
 
 Notice the yellow squiggle under language in the match statement. The warning message says:
 
-```
-Incomplete pattern matches on this expression. For example, the value '"a"' may indicate a case not covered by the pattern(s).
-```
+> Incomplete pattern matches on this expression. For example, the value '"a"' may indicate a case not covered by the pattern(s).
 
-The compiler has noticed that we are matching on `string`s and that there is a value that isn't covered by our current cases, `"a"` being the example that it gives. We can't write out every possible string manually so F# gives us a way to deal with this situation by using a "wildcard" character (`_`) to match "anything else". Let's see how this is used:
+The compiler has noticed that we are matching on `string`s and that there is a value that isn't covered by our current cases, `"a"` being the example that it gives. We can't write out every possible string manually so F# gives us a way to deal with this situation by using a "wildcard" character `_` to match "anything else". Let's see how this is used:
 
 ```fsharp
 let greetings language =
@@ -165,7 +163,7 @@ let isVowel letter =
     | _ -> false
 ```
 
-This function has type `char -> bool`. `char` is the type that represents a single "character" - i.e. a single letter. As with `string`s, `char`s are case sensitive, so in our `isVowel` function we have to check for all upper and lower-case vowels.
+This function has type `char -> bool`. `char` is the type that represents a single "character" - e.g. a single letter or symbol. As with `string`s, `char`s are case sensitive, so in our `isVowel` function we have to check for all upper and lower-case vowels.
 
 The syntax for checking multiple cases at once is simply to leave the `->` off and write the next case. Cases can be written inline, or on multiple lines. Here it makes the code more readable to put the lower-case values on one line and the upper-case values on the next line, so it is clear that we are checking all possible vowels.
 
@@ -180,6 +178,13 @@ Let's use pattern matching to write some more complex functions then we have don
 1. Write a function which returns the string representation of a particular number between 0 and 9 (e.g. inputting `1` returns `"one"`). Return `"other number"` if the input is not a number from 0 to 9.
 2. Using the modulus operator, write a function which returns the last digit of a number (e.g. inputting `54` returns `4`).
 3. Using the function you just wrote, write another function which returns the number of tens in a two digit number (e.g. inputting `54` returns `50`).
-4. Write a function which takes an int and returns the English name of the input when rounded down to the nearest 10. E.g. inputting `54` returns `"fifty"`. Return `"small number"` if the input is less than 10 and `"big number"` if the input is greater than 99.
-5. Use the functions you've written to create a function which takes an `int` and returns the string representation of the number (for two digit numbers). Hence `54` should return `"fifty four"`. (HINT: You can join strings together using the "concatenation" operator `+`. Remember to put a space `" "` between the words - e.g. `"hello" + " " + "world"` gives `"hello world"`).
+4. Write a function which takes an `int` and returns the English name of the input when rounded down to the nearest 10. E.g. inputting `54` returns `"fifty"`. Return `"small number"` if the input is less than 10 and `"big number"` if the input is greater than 99.
+5. Use the functions you've written to create a function which takes an `int` and returns the string representation of the number (for two digit numbers). Hence `54` should return `"fifty four"`. 
+
+<note type="tip">
+
+You can join strings together using the "concatenation" operator `+`. Remember to put a space `" "` between the words - e.g. `"hello" + " " + "world"` gives `"hello world"`.
+
+</note>
+
 6. BONUS: Try to improve your code to work for numbers between 10 and 20, and to not return the `"zero"` when passing a number like `50`. Perhaps also return a more specific message if the number is less than 0 or greater than 99.

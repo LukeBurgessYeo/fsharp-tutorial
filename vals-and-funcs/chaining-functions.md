@@ -61,7 +61,7 @@ let x3 = isEven x2
 
 Sending all of this into F# Interactive gives the following output:
 
-```
+``` {highlight: ['9-15']}
 > let times4 n = n * 4
 - let subtract3 n = n - 3
 - let isEven n = n % 2 = 0
@@ -83,7 +83,7 @@ Notice the types of the functions we defined. Both `times4` and `subtract3` have
 
 This is important because we can only combine together functions like this if we can match up the input and output types. We could not, for example, call `subtract3` on the output of `isEven` as we would get a compiler error:
 
-```
+``` {highlight: ['4-7']}
 > let y = isEven 10
 - subtract3 y;;
 
@@ -136,7 +136,7 @@ let x =
     |> isEven
 ```
 
-Putting each new function call on a new line for readability - which all lines indented the same amount so that the compiler knows that they all belong to the same `let` block. `x` now has type `bool` as this is the type the the last function, `isEven`, returns.
+Putting each new function call on a new line for readability - with all lines indented the same amount so that the compiler knows that they all belong to the same `let` block. `x` now has type `bool` as this is the type the last function, `isEven`, returns.
 
 Of course, there is nothing special about the number 10, so let's turn the above code into a function:
 
@@ -173,7 +173,7 @@ let doMaths n =
 
 this gives the following error:
 
-```
+``` {highlight: [5]}
 Script.fsx(22,8): error FS0001: Type mismatch. Expecting a
     '(int -> int) -> 'a'
 but given a
