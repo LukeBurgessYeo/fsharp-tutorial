@@ -2,7 +2,7 @@
 
 ## Getting Items From Lists
 
-Let's look at how to retrieve the item of a list at a given index. This can be done using the `List.item` function from the `List` module. `List.item` has type `int -> 'a list -> 'a`. As you might expect, the `int` parameter is the index of the item we want, and the returned value of type `'a` is the element itself:
+Let's look at how to retrieve an item from a list at a given index. This can be done using the `List.item` function from the `List` module. `List.item` has type `int -> 'a list -> 'a`. As you might expect, the `int` parameter is the index of the item we want, and the returned value of type `'a` is the element itself:
 
 ```fsharp
 let nthLetter n =
@@ -26,7 +26,7 @@ With that being said, we can add a new element to the front of a list using the 
 
 This code produces a list from 1 to 4:
 
-```
+``` {highlight: [2]}
 > 1::[ 2; 3; 4 ];;
 val it : int list = [1; 2; 3; 4]
 ```
@@ -39,7 +39,7 @@ We can even use the `::` operator to create lists (although this is not done in 
 
 `[]` is an empty list which we than add `4` to, then `3` becomes the new first element, etc. until we end up with:
 
-```
+``` {highlight: [2]}
 > 1::2::3::4::[];;
 val it : int list = [1; 2; 3; 4]
 ```
@@ -58,7 +58,7 @@ One way is to use the "list concatenation" operator `@`. This operator takes two
 
 This gives us a list of numbers from 1 to 6:
 
-```
+``` {highlight: [2]}
 > [ 1; 2; 3 ] @ [ 4; 5; 6 ];;
 val it : int list = [1; 2; 3; 4; 5; 6]
 ```
@@ -80,7 +80,7 @@ As an aside, the `List` module also has a function called `List.append` which do
 |> List.append [ 0; 1 ]
 ```
 
-Another technique for adding an item to the end of a list is to reverse the list, add the item to the front of the list, and reverse the list again. This sounds convoluted but is actually the more "idiomatic" way of adding an item to the end of a list (again, for technical reasons which we will not go into here). We can do this easily with `List.rev` - a function with type `'a list -> 'a list` which reverses a list:
+Another technique for adding an item to the end of a list is to reverse the list, add the item to the front of the list, and reverse the list again. This sounds convoluted but is sometimes the more natural way of adding an item to the end of a list (for example, if you had reversed the list already for some other reason). We can do this easily with `List.rev` - a function with type `'a list -> 'a list` which reverses a list:
 
 ```fsharp
 let addToEnd2 list item =
@@ -113,9 +113,9 @@ let removeTail list =
 
 This function also has type `'a list -> 'a` and removes the last element of a list:
 
-```
+``` {highlight: [2]}
 > removeTail [ 1 .. 5 ];;
-val it : int list = [1; 2; 3; 4 ]
+val it : int list = [1; 2; 3; 4]
 ```
 
 If we just wanted to know what the last item in a list was, we could use `List.last`.
@@ -132,7 +132,7 @@ List.take 3 [ 1 .. 5 ]
 
 Which gives:
 
-```
+``` {highlight: [2]}
 > List.take 3 [ 1 .. 5 ];;
 val it : int list = [1; 2; 3]
 ```
@@ -140,12 +140,12 @@ val it : int list = [1; 2; 3]
 The next function which we will look it is `List.skip`. `List.skip` is similar to `List.take` - even having the same type - but instead of taking elements from the front of a list, `List.skip` "skips" the first elements and returns the rest of the list. For example:
 
 ```fsharp
-List.skip 3 [1 .. 5 ]
+List.skip 3 [ 1 .. 5 ]
 ```
 
 Which produces:
 
-```
+``` {highlight: [2]}
 > List.skip 3 [1 .. 5 ];;
 val it : int list = [4; 5]
 ```
@@ -161,7 +161,7 @@ let getSubList list first last =
 
 This function has type `'a list -> int -> int -> 'a list`. The `+ 1` is required so that our function returns the elements at index `first` and index `last`. Let's test our function:
 
-```
+``` {highlight: [2]}
 > getSubList [ 'a' .. 'z' ] 2 3;;
 val it : char list = ['c'; 'd']
 ```
@@ -203,7 +203,7 @@ match list with
 | x -> printfn "The list contains %i items" <| List.length x
 ```
 
-In which case `x` is the same as `list`. Sometimes this is all we need.
+In which case `x` is the same as `list`, when `list` is non-empty. Sometimes this is all we need.
 
 However, we can also match `list` with `| head::tail`. This use of the cons operator (`::`) binds the first item in `list` to the value `head` and everything else to `tail`. We can do this because we know that `list` is non-empty (as we just checked that case on the previous line). If we did not do this, but still wanted the head and tail of `list` we would have had to do this instead:
 
@@ -241,7 +241,7 @@ let lotsOfMatches list =
     | [ head ] -> printfn "one item - %A" head
     | first::[ second ] -> printfn "two items - %A and %A" first second
     | x when List.length x > 2 -> printfn "at least three items"
-    | _ -> printfn "lots of items!"
+    | _ -> printfn "in this case, this will never be matched"
 ```
 
 ## Exercises
@@ -249,8 +249,14 @@ let lotsOfMatches list =
 Complete the following:
 
 1.  Write a function similar to `nthLetter` from earlier in the chapter but which takes a list as the first parameter, and an `int` as the second parameter and returns the "nth" item in the list. However, if "n" is too small return the first item and if n is too large return the last item.
-2.  Write a function which takes a list and an integer (called `n` for example) and returns the last `n` items in the list. This should behave exactly like `List.take` except taking from the end of the list rather than the start. The items should also be returned in the same order that they were in in the original list.
+2.  Write a function which takes a list and an `int` (called `n` for example) and returns the last `n` items in the list. This should behave exactly like `List.take` except taking from the end of the list rather than the start. The items should also be returned in the same order that they were in in the original list.
 3.  If you used `List.rev` in the previous exercise, rewrite the function using `List.skip`. If you used `List.skip`, rewrite the function using `List.rev` instead.
 4.  Write a function which takes an `int` (called `n` for example) and a list and returns a list with the item at index `n` removed. (Don't worry about checking if `n` is a valid index.)
 5.  Write a function which takes three parameters - an index, a list and an item to add to the list - and returns a list with the item added after the element at the given index. (Don't worry about checking if the index is valid.)
 6.  Write a function similar to the previous exercise but update the element at the given index with the given value. (Don't worry about checking if the index is valid.)
+
+<note>
+
+A lot of the time accessing elements directly by index isn't required, but sometimes we do need to use this technqiue. In these situations it matters a great deal if the index we are using is valid. Learning how to deal with these situations will come later, but as an additional exercise maybe you could think about what we might do?
+
+</note>

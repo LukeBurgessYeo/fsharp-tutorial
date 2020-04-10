@@ -2,7 +2,7 @@
 
 ## What Are Records?
 
-Suppose you wanted to store many different data points together in one place. Perhaps you are building (yet another) dating app and you want to be able to store all the information in a users profile all in one, convenient, easy to use data type. You could try using a tuple for this...
+Suppose you wanted to store many different data points together in one place. Perhaps you are building (yet another) dating app and you want to be able to store all the information in a user's profile all in one, convenient, easy to use data type. You could try using a tuple for this...
 
 ```fsharp
 type Gender =
@@ -31,7 +31,7 @@ type User = {
 
 We can define record types using the `type` keyword and whatever we want to call the type, in this case `User`. Then we put a list of "fields" (sometimes called "members") together with their types between curly brackets `{` `}`. The name of each field and it's type are separated by a colon `:` - this is how the compiler knows the difference between the field `Gender` and the type `Gender`, for example. Fields can be any F# type, including other records.
 
-We can create values with this type by simply giving each field a value (using `let` for the overall value and `=` for each field):
+We can create values with this type by simply giving each field a value - using `let` for the overall value and `=` for each field:
 
 ```fsharp
 let john = {
@@ -62,7 +62,7 @@ let getAge user =
     user.Age
 ```
 
-`getAge` has type `User -> int`. Writing small functions like this, to get fields which are frequently accessed, can be very useful.
+`getAge` has type `User -> int`. Writing small functions like this, to get fields which are frequently accessed, can be very useful. A subtle point here is that a value of type `User` will always have an `Age` because we cannot create a `User` without asigning a value to every field.
 
 We often want to get multiple fields from a record and assign them to values, this can be done in one step using "record deconstruction":
 
@@ -73,7 +73,7 @@ printfn "%s is %i years old" johnsName johnsAge
 
 The syntax is slightly obscure, but here we are creating two values - `johnsAge` and `johnsName` inside what looks like a record (notice we can also write records on on line separating each field with a semicolon `;`), and using `=` to pull the fields from `john`. Running the above code outputs:
 
-```
+``` {highlight: ['2-3', 6]}
 > let { Age = johnsAge; Name = johnsName } = john;;
 val johnsName : string = "John Smith"
 val johnsAge : int = 26
@@ -105,7 +105,7 @@ john = updatedJohn
 
 Running this code gives:
 
-```
+``` {highlight: [2, 5]}
 > john = { john with Name = "John Smith"; Age = 26 };;
 val it : bool = true
 
@@ -136,7 +136,7 @@ let getName thing =
 
 `getName` has type `City -> string` if you defined `City` after `User`, or type `User -> string` if you defined `User` last. This is slightly annoying. We don't want to have to keep track of which order we need to define types in in order for our functions to work as expected. Fortunately there is a way for us to explicitly specify the types of our parameters - using "type annotations". In this case, let's force the type of our parameter to be `User`:
 
-```fsharp
+```fsharp {highlight: [1]}
 let getName (thing : User) =
     thing.Name
 ```
@@ -145,7 +145,7 @@ Putting the parameter in brackets with `: User` after the name of the parameter 
 
 We can also specify the return type of a function by putting `: Type` after all the parameters, but this should never be necessary:
 
-```fsharp
+```fsharp {highlight: [1]}
 let getName (thing : User) : string =
     thing.Name
 ```

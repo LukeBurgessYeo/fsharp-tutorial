@@ -2,7 +2,7 @@
 
 ## What Is A List?
 
-`Lists` are what you might expect them to be - an ordered collection of values. Let's see an example:
+Lists are what you might expect them to be - an ordered collection of values. Let's see an example:
 
 ```fsharp
 let myList = [ 1; 2; 3 ]
@@ -30,7 +30,7 @@ let oneToTen = [ 1 .. 10 ]
 
 If we send this to F# Interactive, we can see the whole list:
 
-```
+``` {highlight: [2]}
 > let oneToTen = [ 1 .. 10 ];;
 val oneToTen : int list = [1; 2; 3; 4; 5; 6; 7; 8; 9; 10]
 ```
@@ -45,7 +45,7 @@ let oneToOneHundred = [ 1 .. 10 .. 100 ]
 
 This gives us a list starting at `1` with each term being `10` more than the next until we reach `100`:
 
-```
+``` {highlight: [2]}
 > let oneToOneHundred = [ 1 .. 10 .. 100 ];;
 val oneToOneHundred : int list = [1; 11; 21; 31; 41; 51; 61; 71; 81; 91]
 ```
@@ -74,7 +74,7 @@ List.init 10 (fun index -> index * index)
 
 We pass in `10` because we want a list with 10 elements in it, then we pass in an anonymous function of type `int -> int` which takes a number and squares it. Evaluating this statement gives:
 
-```
+``` {highlight: [2]}
 > List.init 10 (fun index -> index * index);;
 val it : int list = [0; 1; 4; 9; 16; 25; 36; 49; 64; 81]
 ```
@@ -99,7 +99,7 @@ List.init 10 id
 
 Passing this into F# Interactive gives:
 
-```
+``` {highlight: [2]}
 > let basicList = List.init 10 id;;
 val basicList : int list = [0; 1; 2; 3; 4; 5; 6; 7; 8; 9]
 ```
@@ -119,9 +119,9 @@ However, it is often much more convenient to write an anonymous function because
 
 We have seen how we can create simple lists using the `..` operator, as well as more complex lists using `List.init` so now let's look at how we can work with existing lists. The main way we work with lists is by using functions in the F# `List` "module". Modules are just groups of functions which we can access using the `.` syntax. We have already seen an example in the form of `List.init`. `List` is the name of the module, `init` is the name of the function inside that module. Let's look at some more functions from the `List` module.
 
-### List.iter
+### `List.iter`
 
-`List.iter` is a function which allows us to "iterate" (take each element of the list one at a time) and "do something" with it.
+`List.iter` is a function which allows us to "iterate" (take each element of the list one at a time) over a list and "do something" with each element.
 
 `List.iter` has type `('a -> unit) -> 'a list -> unit`. The first parameter is a function which takes some type `'a`, which could be any F# type, and returns `unit`. The second parameter has type `'a list` (notice `'a` is the same as the `'a` in the function that is the first parameter). `List.iter` then returns `unit`. Just from the type which `List.iter` has, we can guess that the function which we pass in is going to be applied to the elements of the list.
 
@@ -134,7 +134,7 @@ List.iter (fun x -> printfn "%i" x) numbers
 
 Because `numbers` is an `int list` we need to use `%i` to print each element of the list. Running this code in F# Interactive produces:
 
-```
+``` {highlight: [2, 3, 4]}
 > let numbers = [ 1 .. 100 ]
 - List.iter (fun x -> printfn "%i" x) numbers;;
 1
@@ -170,13 +170,13 @@ List.init 100 (fun i -> i * i)
 
 Try experimenting with this code - changing the size of the list and the function parameters - to understand what each of the List functions does, as well as the functions being passed in as parameters.
 
-### List.map
+### `List.map`
 
 Suppose we had a list but we wanted to transform each element of the list. Perhaps we have a list of numbers and we want to know which are odd and which are even. The function that lets us do this is `List.map`.
 
 `List.map` has type `('a -> 'b) -> 'a list -> 'b list`. This looks a little crazy, so let's break it down.
 
-The first parameter is `('a -> 'b)` which is a function that takes some type (`'a`) and returns another (maybe the same, maybe different) type (`'b`). For example, it could be a function which takes an `int` and returns a `bool`.
+The first parameter is `('a -> 'b)` which is a function that takes some type `'a` and returns another (maybe the same, maybe different) type `'b`. For example, it could be a function which takes an `int` and returns a `bool`.
 
 The next parameter has type `'a list`, i.e. a list with elements of the same type as the parameter of the function which we just looked at (e.g. it must be an `int list` if we passed in a function of type `int -> bool`).
 
@@ -192,20 +192,22 @@ Here's an example:
 
 `List.map` takes each element of the list one at a time and "maps" it to a new value using the function which we pass in as the first parameter. In this case we take a list of `int`s and check if each element is even (using `%`). This gives the following result:
 
-```
+``` {highlight: [3]}
 > [ 1; 3; 5; 8; 12; 102 ]
 - |> List.map (fun x -> x % 2 = 0);;
 val it : bool list = [false; false; false; true; true; true]
 ```
 
-Notice we get a `bool list` - as we passed in a `int -> bool` function - with each element in the list corresponding to the whether or not the element in the original list was even. Importantly, this is a new list. F# does not change the input list. We can check that this is the case by assigning the input list to a value and checking it before and after we've passed it into `List.map`:
+Notice we get a `bool list` - as we passed in a `int -> bool` function - with each element in the list corresponding to the whether or not the corresponding element in the original list was even. Importantly, this is a new list. F# does not change the input list. We can check that this is the case by assigning the input list to a value and checking it before and after we've passed it into `List.map`:
 
-```
-> let numbers = [ 1; 3; 5; 8; 12; 102 ]
-- let evens = numbers |> List.map (fun x -> x % 2 = 0)
-- numbers;;
+``` {highlight: [2, 5, 8]}
+> let numbers = [ 1; 3; 5; 8; 12; 102 ];;
 val numbers : int list = [1; 3; 5; 8; 12; 102]
+
+> let evens = numbers |> List.map (fun x -> x % 2 = 0);;
 val evens : bool list = [false; false; false; true; true; true]
+
+> numbers;;
 val it : int list = [1; 3; 5; 8; 12; 102]
 ```
 
@@ -218,7 +220,7 @@ As you can see, numbers is the same before and after using `List.map`, so evens 
 |> List.mapi (fun index letter -> sprintf "Letter number %i is %c" index letter)
 ```
 
-Yes, we can use the `..` operator with chars too.
+Yes, we can use the `..` operator with `char`s too.
 
 ## Exercises
 
