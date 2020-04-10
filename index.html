@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+            shrink-to-fit=no">
+    <title>Learning F#</title>
+    <!-- Uncomment this stylesheet when there is no internet -->
+    <!-- <link rel="stylesheet" href="docute.css"> -->
+
+    <link rel="stylesheet" href="https://unpkg.com/docute@4/dist/docute.css">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module">
+        import latexjs from "https://cdn.jsdelivr.net/npm/latex.js/dist/latex.component.esm.js"
+        customElements.define('latex-js', latexjs)
+    </script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <!-- Uncomment this stylesheet when there is no internet -->
+    <!-- <script src="docute.js"></script> -->
+    <script src="https://unpkg.com/docute@4/dist/docute.js"></script>
+    <script>
+        var docs = new Docute({
+            layout: "wide",
+            target: "#root",
+            highlight: ["fsharp", "ocaml", "fs"],
+            cssVariables: {
+                accentColor: "#551A8B",
+                sidebarWidth: "300px",
+                sidebarLinkActiveColor: "#551A8B",
+                sidebarLinkArrowColor: "#551A8B"
+            },
+            nav: [
+                { title: "View On GitHub", link: "https://github.com/LukeBurgessYeo/fsharp-tutorial" }
+            ],
+            sidebar: [
+                {
+                    title: "What Is This Guide?",
+                    link: "/",
+                    toc: false
+                },
+                {
+                    title: "Introduction",
+                    links: [
+                        { title: "Introducing Programming", link: "/introduction/introduction", toc: false },
+                        { title: "Setting Up", link: "/introduction/beginning", toc: false }
+                    ]
+                },
+                {
+                    title: "Values And Functions",
+                    links: [
+                        { title: "The Basics", link: "/vals-and-funcs/the-basics", toc: false },
+                        { title: "Introducing Functions", link: "/vals-and-funcs/introducing-functions", toc: false },
+                        { title: "More Functions", link: "/vals-and-funcs/more-functions", toc: false },
+                        { title: "Chaining Functions", link: "/vals-and-funcs/chaining-functions", toc: false },
+                        { title: "Conditional Logic", link: "/vals-and-funcs/conditional-logic", toc: false },
+                        { title: "Anonymous Functions", link: "/vals-and-funcs/anonymous-functions", toc: false }
+                    ]
+                },
+                {
+                    title: "More Types",
+                    links: [
+                        { title: "Introducting Lists", link: "/more-types/introducing-lists", toc: false },
+                        { title: "More Lists", link: "/more-types/more-lists", toc: false },
+                        { title: "The List Module", link: "/more-types/the-list-module", toc: false },
+                        { title: "Tuples", link: "/more-types/tuples", toc: false },
+                        { title: "Discriminated Unions", link: "/more-types/discriminated-unions", toc: false },
+                        { title: "Records", link: "/more-types/records", toc: false },
+                        { title: "Sets and Maps", link: "/more-types/sets-and-maps", toc: false }
+                    ]
+                }
+            ]
+        });
+    </script>
+</body>
+
+</html>

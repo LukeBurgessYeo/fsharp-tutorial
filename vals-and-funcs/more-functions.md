@@ -137,6 +137,7 @@ We've tackled some tough concepts. Don't worry if you don't fully understand the
 2. Write another function - called `betweenAandB` - which is the same as `between10and20` but takes the upper and lower bound as parameters. Rewrite `between10and20` in terms of `betweenAandB` by passing in just the first two parameters.
 3. Write another function - called `testNumbers` - which is the same as `betweenAandB` but takes a function as the first parameter and applies that function to the final two parameters, checking if the results are between the second two parameters.
 
+<note label="">
 <details>
   <summary>Click to show hint</summary>
 
@@ -147,6 +148,7 @@ let testNumbers func upper lower a b =
 ```
 
 </details>
+</note>
 
 4. Write another function - called `times` - which takes two integers and multiplies them together. Rewrite `betweenAandB` in terms of `times` and `testNumbers`.
 5. Write a new function - called `outside50and100` - which takes two integers and checks if their sum is less than 50 OR greater than 100. Define this function only in terms of `testNumbers` and it's parameters.

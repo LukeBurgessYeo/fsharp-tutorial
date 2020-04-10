@@ -25,3 +25,5 @@ If you are curious about programming and the F# language, this guide is for you.
 The chapters in this guide have been written in the order in which they are intended to be read. That being said, if a particular chapter is proving troublesome, skipping ahead in encouraged. Some of the concepts introduced in this guide take some time to understand. However, these concepts are used regularly later in the guide and the continued exposure to the concepts and techniques may be all that is required to gain the necessary understanding to use those techniques yourself.
 
 Make sure to run the code snippets in this guide for yourself. The outputs are often shown here but running the code yourself will help to solidify your understand. Doing this also allows you to change the code snippets and experiment with them. This is fully encouraged.
+
+[Let's get started! →](/introduction/introduction)

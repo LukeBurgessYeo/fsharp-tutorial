@@ -1,4 +1,4 @@
-# Introduction
+# Introducing Programming and F<span>#</span>
 
 ## What Is Programming?
 
@@ -14,7 +14,7 @@ F# is a programming language invented by Microsoft. It is a part of a larger fam
 
 The reasons why F# is suitable for these tasks are beyond the scope of a "learn to code" guide but one reason that is often given is that once an F# program compiles it "just works". Many programming languages allow you to write code which compiles, but doesn't work properly when run. F#, on the other hand, has a very strict compiler which means that it is harder to get code to compile, but once it does you can be confident that it does what you expect.
 
-## Why Not \<insert language here\>?
+## Why Not _insert language here_?
 
 Let's be clear. F# is not a beginner friendly language. It is designed for experienced programmers to build sophisticated applications. It is not supposed to be easy to work with after 5 minutes of learning. It is, however, supposed to be a joy to work with after many years of programming and software development experience.
 

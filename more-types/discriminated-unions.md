@@ -1,6 +1,6 @@
 # Discriminated Unions
 
-# What Are Discriminated Unions?
+## What Are Discriminated Unions?
 
 The other major feature of F#s algebraic type system is the ability to create types which may be one of several different types. These types are called "discriminated unions" and are defined like so:
 
@@ -38,7 +38,7 @@ let myTriangle = Triangle (3.0, 4.0, 5.0)
 let myCircle = Circle 3.0
 ```
 
-# Pattern Matching Discriminated Unions
+## Pattern Matching Discriminated Unions
 
 This is where discriminated unions truly shine. When we create a discriminated union we explicitly state every possibility. This means we can very easily pattern match every possibility and the compiler will also know when we've covered every case. Furthermore, we _have_ to pattern match a value which has a discriminated union type if we want to get the data out that we stored there.
 
@@ -58,13 +58,18 @@ This function has type `Shape -> float` as we might expect. The area of a square
 
 Calculating the area of a triangle from it's three side lengths is a little more involved. The formula we are using is **[Heron's Formula](https://www.mathopenref.com/heronsformula.html)**:
 
+<latex-js baseURL="https://cdn.jsdelivr.net/npm/latex.js@0.11.1/dist/">
+\documentclass[18pt]{article}
+\begin{document}
 $$
 Area = \sqrt{p(p - a)(p - b)(p - c)}
 $$
 
 $$
-\text{where} \quad p = \frac{a + b + c}{2}
+\text{where} \quad p = ({a + b + c})/{2}
 $$
+\end{document}
+</latex-js>
 
 So first we define `p` as half the perimeter and then use the built in `sqrt` function to calculate the square root of the product in the above formula.
 
@@ -81,7 +86,7 @@ val it : float = 28.27433388
 val it : float = 6.0
 ```
 
-# The `option` Type
+## The `option` Type
 
 Discriminated unions are so important that F# even has one built in. It is called option and has two cases: Some 'a and None. Here are some examples:
 
@@ -137,7 +142,7 @@ val it : unit = ()
 
 There are plenty of other built in F# functions with "try" in the name (`List.tryItem` for example) which generally return an `option`. Now that you know how to use these functions it is recommended that you use them whenever possible and handle both the `Some` and `None` cases. For example, your code will just stop if you use `List.find` and no element is found, however if you use `List.tryFind`, the compiler will force you to handle the case when an element isn't found, which is a good habit to have.
 
-# Exercises
+## Exercises
 
 Let's test your understanding of discriminated unions with the following exercises:
 

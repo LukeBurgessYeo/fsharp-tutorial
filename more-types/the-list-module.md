@@ -1,8 +1,8 @@
-# More List Module Functions
+# The List Module
 
 The `List` module has many useful functions. Let's finish off our study of lists by looking at several commonly used, and particularly useful, functions.
 
-# `List.filter`
+## `List.filter`
 
 Suppose we want to remove several items from a list according to some rule. For example, we have a list of integers and want only the even ones. `List.filter` is the function we need. 
 
@@ -21,7 +21,7 @@ val it : int list = [2; 4; 6; 8; 10]
 ```
 `List.filter` is the most common way to remove elements from a list.
 
-# `List.fold`
+## `List.fold`
 
 Now suppose we want to collapse a list down to a single value. For example, we want to add up all the numbers in a list. In general, we can use the function `List.fold` to "fold" up the list into a single value.
 
@@ -108,7 +108,7 @@ val it : int = 4
 
 If you find yourself writing a function like this - with a multi-line anonymous function - make sure the body of the function is indented correctly. If the function you are writing is particularly complex you may want to write a named function instead and pass the name in as a parameter.
 
-# Other Useful `List` Module Functions
+## Other Useful `List` Module Functions
 
 To finish of this chapter, here are some more useful functions from the list module:
 
@@ -124,7 +124,7 @@ To finish of this chapter, here are some more useful functions from the list mod
 
 There are many other functions in the `List` module which you can look up as you progress with F#.
 
-# Exercises
+## Exercises
 
 We've done a lot of work with lists. Let's put that knowledge to the test. Complete the following:
 

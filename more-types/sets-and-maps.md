@@ -1,12 +1,12 @@
 # Sets And Maps
 
-# Sets
+## Sets
 
-## What Are Sets?
+### What Are Sets?
 
 "Sets" are simply unordered lists with no duplicate elements. This can sometimes be a useful way to store data, and is the recommended way if you require their to be no duplicates and you don't need your data to be ordered in any particular way. For example, the usernames of your websites' users may have to be unique, so having a `Set` of current usernames may be a good way of ensuring that no duplicate usernames are created.
 
-## Creating Sets
+### Creating Sets
 
 Sets can be creating using `Set.empty` and items added to the set using `.Add()`:
 
@@ -38,7 +38,7 @@ val anotherSet : Set<int> = set [1; 2; 3; 4; 5]
 
 Again, notice that `anotherSet` only contains a single copy of each number in the original list.
 
-## Working With Sets
+### Working With Sets
 
 F# has a module of functions for working with sets, much like the `List` module. We can do things like `Set.map` and `Set.filter` which work just like the `List` module equivalents. However, we can also do set operations just like we would with mathematical sets:
 
@@ -54,15 +54,15 @@ We can turn sets into lists easily using `Set.toList`. There are other `Set` mod
 
 Sets are not commonly used but can be useful in certain situations and are certainly worth knowing about.
 
-# Maps
+## Maps
 
-## What Are Maps?
+### What Are Maps?
 
 "Maps" (sometimes called "hashmaps" or "dictionaries") are another data structure which we can use to store and organise data. Maps are a collection of "key-value pairs" where we use the "key" to efficiently look up the "value" (much like how we use the word to lookup the definition in a dictionary) - so maps are an explicit mapping from a key to a value.
 
 Like sets, maps are unordered and cannot contain duplicate keys. Maps can contain duplicate values, but keys must be unique so we know which value to look up. It is often useful to store information in this way, for example if you are creating a contacts app the names of the users' contacts should be unique and each name should have a corresponding phone number.
 
-## Creating Maps
+### Creating Maps
 
 Much like sets, we can create maps using `Map.empty` and `.Add()`:
 
@@ -92,7 +92,7 @@ val anotherMap : Map<string,int> = map [("Alice", 1234); ("Bob", 3546)
 
 Just as with sets, we do not get any duplicate entries. We only get the first `"Bob"` in the list. As with sets, we can create a list from a map using `Map.toList`.
 
-## Working With Maps
+### Working With Maps
 
 As you might expect, there is also a `Map` modules with similar functions to the `List` and `Set` modules (like `Map.map`, `Map.filter`, `Map.fold`, etc.).
 
@@ -118,7 +118,7 @@ val it : Map<string,int> = map [("Alice", 1234); ("Bob", 4425)]
 
 Again, there are many more `Map` module functions which you may wish to explore. Maps are extremely useful for storing data in a way which allows for easy lookup.
 
-# Exercises
+## Exercises
 
 Let's test your understanding of sets and maps:
 

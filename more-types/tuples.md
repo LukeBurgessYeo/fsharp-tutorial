@@ -1,6 +1,6 @@
 # Tuples
 
-# What Are Tuples?
+## What Are Tuples?
 
 F# has what is known as an an "algebraic type system" (inspired by the field of abstract algebra in mathematics). One of the things that this means is that we can combine types in F# together in certain ways. The first way we are going to look at can be thought of as "multiplying" together two or more types. The resulting types we get from this operation are called "tuples". Let's see an example:
 
@@ -14,7 +14,7 @@ Tuples are created simply by placing whatever values you like, separated by comm
 
 Tuples can be as long as you like although they do become more and more awkward to work with the longer they get.
 
-# Getting Values From Tuples
+## Getting Values From Tuples
 
 So, if we have a tuple, how do we get individual values out of it? By pattern matching of course. Here's an example:
 
@@ -60,7 +60,7 @@ F# does not have built in functions for handling tuples with more than two eleme
 let third (_, _, c) = c
 ```
 
-# Using Tuples Inside Match Statements
+## Using Tuples Inside Match Statements
 
 Using tuples inside `match` statements is similar to how we use tuples in parameters:
 
@@ -99,7 +99,7 @@ checkCoords 10 12
 
 There is also a "triple forward pipe" `|||>` which works on length three tuples. These operators aren't used too frequently, but now you know what they are if you do come across them.
 
-# Exercises
+## Exercises
 
 Let's practice using tuples. Complete the following exercises:
 

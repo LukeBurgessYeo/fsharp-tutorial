@@ -1,0 +1,21 @@
+{
+    "name": "learning-fsharp",
+    "version": "1.0.0",
+    "description": "Learning to program from scratch in F#",
+    "dependencies": {
+        "live-server": "^1.2.1"
+    },
+    "scripts": {
+        "start": "live-server . --port=4000"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/LukeBurgessYeo/fsharp-tutorial.git"
+    },
+    "keywords": [
+        "fsharp",
+        "F#"
+    ],
+    "author": "Luke Burgess-Yeo",
+    "license": "GNU"
+}

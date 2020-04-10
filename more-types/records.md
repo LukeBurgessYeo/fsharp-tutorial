@@ -1,6 +1,6 @@
 # Records
 
-# What Are Records?
+## What Are Records?
 
 Suppose you wanted to store many different data points together in one place. Perhaps you are building (yet another) dating app and you want to be able to store all the information in a users profile all in one, convenient, easy to use data type. You could try using a tuple for this...
 
@@ -47,7 +47,7 @@ let john = {
 
 Notice that the value `john` has type `User`. Notice also that it is clear just from looking at this code what each `string`, `int`, etc. represent. We were able to guess what most of them meant previously but now the definition of the value `john` tells us explicitly what each piece of data means (including the mysterious `bool` at the end). We can declare the fields in any order we like, it doesn't have to be the same order as the type definition.
 
-# Working With Records
+## Working With Records
 
 The first thing we may want to do with records is get the value of a particular field. This can be done very easily using "dot" `.` syntax and the name of the field we want to access:
 
@@ -115,7 +115,7 @@ val it : bool = false
 
 Even though we copied `john` to a new value in the first example, the fields contained the same data and so the two records are equal. In the second example, `updatedJohn` is not equal to `john` as the data is different.
 
-# Using Records In Functions
+## Using Records In Functions
 
 As we saw earlier, we can pass records into functions like any other type. We also saw that the compiler can infer the type of the parameter based on which fields we access with `.` syntax. However, what if we have two different types which both have a field with the same name?
 
@@ -152,7 +152,7 @@ let getName (thing : User) : string =
 
 It can sometimes be helpful to use type annotations like this when first writing a function, but try and remove them once you've finished writing the function and adjust your code if the compiler still cannot infer the type.
 
-# Pattern Matching Records
+## Pattern Matching Records
 
 As with any F# type, we can pattern match with records. Here is an example:
 
@@ -166,7 +166,7 @@ let printInfo user =
 
 `printInfo` has type `User -> unit`. We can match on a record, binding the value and then using a guard to check particular fields like we do here with `y when y.Age < 18`. We can also use record deconstruction to bind particular fields to values, as we do with `{ Name = name; Verified = b } when not b`. We can also print out an entire record (nicely formatted) using `%A` as we do here in the final case.
 
-# Exercises
+## Exercises
 
 Let's test your understand of records. It wouldn't be a proper programming tutorial if we didn't make an animal type, so let's do that!
 

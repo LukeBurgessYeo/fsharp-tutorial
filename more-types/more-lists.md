@@ -1,6 +1,6 @@
 # More Lists
 
-# Getting Items From Lists
+## Getting Items From Lists
 
 Let's look at how to retrieve the item of a list at a given index. This can be done using the `List.item` function from the `List` module. `List.item` has type `int -> 'a list -> 'a`. As you might expect, the `int` parameter is the index of the item we want, and the returned value of type `'a` is the element itself:
 
@@ -14,7 +14,7 @@ Here `nthLetter` has type `int -> char` and returns the `n`th letter of the Engl
 
 Of course, this function won't work if we pass in a number less than `1` or greater than `26`, as we cannot get the "-1th" item, or the 100th item. In this case we know our list has 26 elements in it, but in general we might not know how long our list is. F# has the `List.length` function (of type `'a list -> int`) which takes a list and returns its length.
 
-# Adding Items To Lists
+## Adding Items To Lists
 
 As mentioned previously, once a list has been created it cannot be modified - we cannot change the value of any element, we cannot add elements, we cannot remove elements. However, we can create a new list with the changes we want (as we saw with `List.map` for example). This is what we really mean when we talk about "changing" a list. It is simply more concise to speak as if we are _modifying_ the list when in fact we are creating a _new_ list.
 
@@ -93,7 +93,7 @@ This function has the same type as `addToEnd`. Notice the use of `|>` to immedia
 
 `List.rev` can be extremely useful in situations, for example, where it may be more natural to construct a list "backwards" and then reverse it afterwards.
 
-# Removing Items From Lists
+## Removing Items From Lists
 
 In the same way in which F# makes it easy to add an item to the front of a list, F# also makes it easy to remove the first item in a list. There are two functions we will look at here.
 
@@ -120,7 +120,7 @@ val it : int list = [1; 2; 3; 4 ]
 
 If we just wanted to know what the last item in a list was, we could use `List.last`.
 
-# Obtaining Sub-lists
+## Obtaining Sub-lists
 
 In the final part of this section, let's look at how we can get parts of a given list.
 
@@ -170,7 +170,7 @@ The item at index `2` is `'c'` and the item at index `4` is `'d'`, so our functi
 
 Using all the functions we've seen so far we can now manipulate lists however we wish, adding items, removing items and changing the values of items. See the exercises for details.
 
-# Pattern Matching On Lists
+## Pattern Matching On Lists
 
 When writing functions which accept lists as parameters, it's extremely important to know whether or not the list is empty. If the list is empty we generally want to do something different to if the list is non-empty. Thinking back to the chapter on conditional logic, this is exactly the sort of situation where pattern matching can help us out. So let's look at how we can use pattern matching with lists.
 
@@ -244,7 +244,7 @@ let lotsOfMatches list =
     | _ -> printfn "lots of items!"
 ```
 
-# Exercises
+## Exercises
 
 Complete the following:
 
