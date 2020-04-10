@@ -14,7 +14,7 @@ Let's start with the AND operator. `&&` returns `true` if the value of the left 
 
 You should see the following output:
 
-```
+``` {highlight: [2]}
 > (10 > 5) && (10 < 20);;
 val it : bool = true
 ```
@@ -25,7 +25,7 @@ OR (`||`) behaves similarly except this time only one side needs to be `true`:
 (10 > 5) || (10 < 0)
 ```
 
-```
+``` {highlight: [2]}
 > (10 > 5) || (10 < 0);;
 val it : bool = true
 ```
@@ -40,7 +40,7 @@ let biggerThan10 a b = a > 10 && b > 10 || a + b > 10
 
 Let's test it:
 
-```
+``` {highlight: [3, 4, 7, 10]}
 > let biggerThan10 a b = a > 10 && b > 10 || a + b > 10
 - biggerThan10 1 2;;
 val biggerThan10 : a:int -> b:int -> bool
@@ -133,7 +133,7 @@ Being able to work with functions in this way (passing functions as parameters a
 
 We've tackled some tough concepts. Don't worry if you don't fully understand them just yet, and knowing the technical terms certainly isn't a necessary (but might be useful if you want to do some further reading). Try the following exercises to test your understanding:
 
-1. Write a function called `between10and20` which checks if the product of two numbers is between 10 and 20. (e.g. 3 _ 5 is 15 so the function should return `true`, but 5 _ 10 is 50 so it should return `false`.)
+1. Write a function called `between10and20` which checks if the product of two numbers is between 10 and 20. (e.g. 3 * 5 is 15 so the function should return `true`, but 5 * 10 is 50 so it should return `false`.)
 2. Write another function - called `betweenAandB` - which is the same as `between10and20` but takes the upper and lower bound as parameters. Rewrite `between10and20` in terms of `betweenAandB` by passing in just the first two parameters.
 3. Write another function - called `testNumbers` - which is the same as `betweenAandB` but takes a function as the first parameter and applies that function to the final two parameters, checking if the results are between the second two parameters.
 

@@ -16,7 +16,7 @@ Ionide turns VS Code from a simple text editor into a fully featured F# coding e
 
 It is traditional for the first program you ever write in a given programming language to be a ["Hello World!" Program](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program). So let's start there.
 
-Firstly, create a folder somewhere (perhaps inside your `Documents` folder) called something like `FSharp`. Then open this folder in VS Code by selected `File -> Open Folder...` from the VS Code toolbar and selecting your folder.
+Firstly, create a folder somewhere (perhaps inside your `Documents` folder) called something like `FSharp`. Then open this folder in VS Code by selecting `File -> Open Folder...` from the VS Code toolbar and selecting your folder.
 
 Next, create a file by selecting the "Explorer" tab at the top of the left-hand side menu and clicking the "New File" button in the pane which opens up, or by right-clicking inside the pane and selecting "New File". Name this file `Script.fsx`. The `.fsx` file extension is important so that VS Code knows you are trying to create an F# script file.
 
@@ -28,7 +28,7 @@ printfn "Hello World!"
 
 This is the most simple "Hello World!" program in F#. To run the code, highlight it and press `ALT+ENTER` to send the code to "F# Interactive". This will open a terminal at the bottom of the window with "F# Interactive" running. The code will then, hopefully, execute and you should see the following output:
 
-```
+``` {highlight: [2]}
 > printfn "Hello World!";;
 Hello World!
 val it : unit = ()

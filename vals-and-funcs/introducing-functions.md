@@ -22,7 +22,7 @@ timesBy2 8
 
 Sending both these lines to F# interactive gives the following output:
 
-```
+``` {highlight: [3, 4]}
 > let timesBy2 input = input * 2
 - timesBy2 8;;
 val timesBy2 : input:int -> int
@@ -31,7 +31,7 @@ val it : int = 16
 
 And we get `16` as expected.
 
-Notice that the type is `int -> int`. What's going on here?
+Notice that the type of `timesBy2` is `int -> int`. What's going on here?
 
 Well, the compiler has worked out that we've defined a function which takes an `int` and returns an `int`. The arrow (`->`) indicates that we are taking something of the type on the left to something of the type on the right.
 
@@ -41,11 +41,11 @@ Here's another example:
 let isBiggerThan10 n = n > 10
 ```
 
-This time `isBiggerThan10` has type `int -> bool`. The `>` is the "greater than" boolean operator and returns true if the number on the left is bigger than the number on the right. (There is also `<` which is "less than", as well as "greater than or equal to" - `>=` - and "less than or equal to" - `<=` - operators).
+This time `isBiggerThan10` has type `int -> bool`. The `>` is the "greater than" boolean operator and returns true if the number on the left is bigger than the number on the right. (There is also `<` which is "less than", as well as "greater than or equal to" `>=` and "less than or equal to" `<=` operators).
 
 Trying calling this function on `5` and then `15`. You should get the following output:
 
-```
+``` {highlight: [4, 7]}
 > let isBiggerThan10 n = n > 10
 - isBiggerThan10 5;;
 val isBiggerThan10 : n:int -> bool
@@ -59,11 +59,11 @@ As expected, `5` is not bigger than `10` and `15` is bigger.
 
 ## Type Inference
 
-With both these above functions, how did F# know that we are going to pass in an `int`? We didn't tell it that we were passing in an `int`.
+With both these above functions, how did F# know that we were going to pass in an `int`? We didn't tell it that we wanted to pass in an `int`.
 
 However, if we tried to pass in a `float` we would get the following error:
 
-```
+``` {highlight: ['4-7']}
 > let isBiggerThan10 n = n > 10
 - isBiggerThan10 5.5;;
 
@@ -75,7 +75,7 @@ but here has type
 
 Of course, we discovered in the last chapter that `float`s and `int`s cannot interact (and this is again true with boolean operators like `>`) so the error is expected. The F# compiler figured out that because we were applying our inputs to operators with `int`s that our inputs must also be `int`s. This is an F# feature called "type inference" and is extremely useful.
 
-Type inference means that - in most cases - we do not need to tell F# what types our functions take as inputs, instead F# will work them out itself and stop you from passing in parameters of the wrong type. As we've seen, types are extremely important in F# and having a compiler which keeps track of types for us means that we don't have to worry about them so much, safe in the knowledge that the compiler is doing the work for us.
+Type inference means that - in most cases - we do not need to tell F# what types our functions take as inputs, instead F# will work them out itself and stop us from passing in parameters of the wrong type. As we've seen, types are extremely important in F# and having a compiler which keeps track of types for us means that we don't have to worry about them so much, safe in the knowledge that the compiler is doing the work for us.
 
 ## Functions With Multiple Parameters
 
@@ -95,7 +95,7 @@ Now we just need to check if `product` is bigger than `100` and return the resul
 
 Let's run our code with `5` and `10` as inputs:
 
-```
+``` {highlight: [5, 6]}
 > let isLarge a b =
 -     let product = a * b
 -     product > 100

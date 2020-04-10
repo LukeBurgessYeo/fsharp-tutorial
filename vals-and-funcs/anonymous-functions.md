@@ -12,7 +12,7 @@ let printString str = printfn "%s" str
 
 This function has type `string -> unit` and if we pass in a string we can see it printed to the console:
 
-```
+``` {highlight: [2]}
 > printString "hello world!";;
 hello world!
 val it : unit = ()
@@ -37,7 +37,7 @@ let sayHello name = printfn "Hello %s!" name
 
 which prints out:
 
-```
+``` {highlight: [2]}
 > sayHello "Alice";;
 Hello Alice!
 val it : unit = ()
@@ -45,13 +45,13 @@ val it : unit = ()
 
 We can print other types using different placeholders. See the below table:
 
-| type   | placeholder |
-| :----- | :---------: |
-| string |     %s      |
-| int    |     %i      |
-| float  |     %f      |
-| bool   |     %b      |
-| char   |     %c      |
+| type     | placeholder |
+| :------- | :---------: |
+| `string` |    `%s`     |
+| `int`    |    `%i`     |
+| `float`  |    `%f`     |
+| `bool`   |    `%b`     |
+| `char`   |    `%c`     |
 
 We can pass in multiple values into `printfn` too. Here is an example passing in several of the above types:
 
@@ -100,7 +100,7 @@ printCalculation (fun x -> x * x) 4 5
 
 First, we define a function where the first parameter is itself a function of type `int -> int`. The next two parameters are `int`s and `printCalculation` returns `unit`. We can call `printCalculation` using an anonymous function by surrounding the anonymous function in brackets `(` `)` so that F# knows it's a single parameter. The above code outputs:
 
-```
+``` {highlight: [2]}
 > printCalculation (fun x -> x * x) 4 5;;
 The answer is: 81
 val it : unit = ()

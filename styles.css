@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro');
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Source Sans Prod', sans-serif;
 }
 
 @media only screen and (min-width: 1000px) {
