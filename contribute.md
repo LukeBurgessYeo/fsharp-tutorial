@@ -10,11 +10,11 @@ Fortunately, you are in a position to help improve this guide and make it better
 
 This is an open source guide. This means that the source code is freely available for anyone to view, download, and make changes to. You can find the source code on [GitHub](https://github.com/LukeBurgessYeo/fsharp-tutorial). The website itself is hosted by [GitHub Pages](https://pages.github.com/) and published directly from the previously mentioned GitHub repository, so changes made to that repository are immediately reflected on the website which you are reading right now.
 
-As this guide is open source, that means you can help improve it. Before we get into how exactly to do that, we need to quickly mention imposter syndrome.
+As this guide is open source, that means you can help improve it. Before we get into how exactly to do that, we need to quickly mention impostor syndrome.
 
-### Imposter Syndrome Disclamer
+### Impostor Syndrome Disclamer
 
-[Wikipedia](https://en.wikipedia.org/wiki/Impostor_syndrome) describes imposter syndrome as:
+[Wikipedia](https://en.wikipedia.org/wiki/Impostor_syndrome) describes impostor syndrome as:
 
 > Impostor syndrome ... is a psychological pattern in which one doubts one's accomplishments and has a persistent internalized fear of being exposed as a "fraud".
 
