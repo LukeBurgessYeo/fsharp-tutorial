@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="https://unpkg.com/docute@4/dist/docute.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
     <script type="module">
         import latexjs from "https://cdn.jsdelivr.net/npm/latex.js/dist/latex.component.esm.js"
         customElements.define('latex-js', latexjs)
@@ -26,7 +27,7 @@
         var docs = new Docute({
             layout: "wide",
             target: "#root",
-            highlight: ["fsharp", "ocaml", "fs", "bash"],
+            highlight: ["fsharp", "bash"],
             cssVariables: {
                 accentColor: "#b845fc",
                 sidebarWidth: "300px",
