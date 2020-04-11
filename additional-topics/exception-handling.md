@@ -16,7 +16,7 @@ open System.IO
 
 and then sending that line to F# interactive. Now we can access the `File` and `Path` modules which contain the functions we need to read data from files on our file system.
 
-Let's create a file to read from. In the same directory as your script file, create a plain text file called `data.txt`. This can be easily done from within VS Code by clicking the "New File" icon in the explorer tab. Add the following line to `data.txt`:
+Let's create a file to read from. In the same directory as your script file, create a plain text file called `data.txt`. This can be easily done from within VS Code by clicking the "New File" icon in the explorer tab. Open the file in VS Code and add the following line:
 
 ```
 Hello World!
@@ -41,9 +41,9 @@ val it : string [] = [|"Hello World!"|]
 
 Of course, your `file` will be different.
 
-Let's break this code down. Firstly, we are creating a value for the location of our `data.txt` file. F# gives us a shorthand for this in the form of `__SOURCE_DIRECTORY__` which, when run in F# interactive, gives us the string form of the path to our current file. To get the file itself we use `Path.Combine` to combine the path to our current directory with the name of the file we want to access.
+Let's break this code down. Firstly, we are creating a value for the location of our `data.txt` file. F# gives us a shorthand for this in the form of `__SOURCE_DIRECTORY__` which, when run in F# interactive, gives us the string form of the path to our current script file. To get the file itself we use `Path.Combine` to combine the path to our current directory with the name of the file we want to access.
 
-Next we use the `File.ReadAllLines` function to read from the file itself. Notice the type of this function: `string -> string array`. We can also write `string array` as `string []`, or even `Array<string>`. `Array` is a type which is similar to `List` but with some subtle differences (for example, arrays use `[|` `|]` instead of `[` `]`). In F# we generally prefer to work with the `List` type. We can easily get a `List` from an `Array` by using the `Array` module function `Array.toList`. Let's write a more idiomatic F# function to read from a file in the same directory as our script:
+Next we use the `File.ReadAllLines` function to read from the file itself. Notice the type of this function: `string -> string array`. We can also write `string array` as `string []`, or even `Array<string>`. `Array` is a type which is similar to `List` but with some subtle differences (one of the differences can be seen here - arrays use `[|` `|]` instead of `[` `]`). In F# we generally prefer to work with the `List` type. We can easily get a `List` from an `Array` by using the `Array` module function `Array.toList`. Let's write a more idiomatic F# function to read from a file in the same directory as our script:
 
 ```fsharp
 let readFile fileName =
@@ -75,9 +75,9 @@ For example, if we were writing a program which relied upon the existance of a p
 
 Of course, whenever possible, we should be writing code that doesn't throw exceptions but in cases like reading from files we have no choice but to accept that something might go wrong and so we must handle those cases, let's look at how to do that now.
 
-### `try .. with`
+### `try ... with`
 
-In F# whenever we are doing a "risky" operation that might throw an exception - like reading from a file - it is good practice to wrap that code in a `try .. with` block. We put the risky part after the `try` and handle anything that goes wrong using `with`. Let's write a funtion which prints all the lines of a file:
+In F# whenever we are doing a "risky" operation that might throw an exception - like reading from a file - it is good practice to wrap that code in a `try ... with` block. We put the risky part after the `try` and handle anything that goes wrong using `with`. Let's write a funtion which prints all the lines of a file:
 
 ```fsharp {highlight: [2, 5]}
 let printAllLines fileName =
@@ -103,7 +103,7 @@ val it : unit = ()
 
 This time we don't see the exception in the output when we try and read a file that doesn't exist. Instead, a nicely printed message tells us that the file could not be found.
 
-In general it is good practice to put code which could thrown an exception inside a `try .. with` block to handle the exception.
+In general it is good practice to put code which could throw an exception inside a `try ... with` block to handle the exception.
 
 ## Creating And Writing To Files
 
@@ -184,3 +184,58 @@ let appendToFile fileName contents =
 ```
 
 Both functions have type `string -> string list -> unit`. Notice, however, that we need to convert `contents` from `List` to `Array` using `List.toArray` because `File` module functions use the `Array` type, and in F# we prefer to use the `List` type.
+
+<note>
+
+Why do functions in the `File` module prefer `Array`? The reason is that the `System.IO` namespace was designed primarily to be used from C#, not F#. `List` is not a core type in C# whereas `Array` is. This bias towards C# is a common feature in the .NET ecosystem. Fortunately it is often very easy to write our own F# functions to make using these C#-focussed functions more natural to use in F# code, as we have done in this chapter. Doing the reverse - using F#-focussed modules in C# - can often be extremely awkward.
+
+</note>
+
+## Throwing Exceptions
+
+Sometimes we may wish to throw our own exceptions. It is often better not to throw an exception, but exceptions offer the best way to "fail fast" if something has gone wrong and the code needs to stop immediately. Learning when to use exceptions will come with experience, so for now let's just look at the basics of throwing our own exceptions.
+
+The easiest way to throw an exception in F# is to use the `failwith` function:
+
+```fsharp {highlight: [3]}
+let isNonEmpty str =
+    match str with
+    | "" -> failwith "Empty string!"
+    | _ -> true
+```
+
+`isNonEmpty` is a function with type `string -> bool` which returns `true` if the input is non-empty and throws an exception if the input is an empty string. Let's test it on some inputs:
+
+``` {highlight: [2, 5]}
+> isNonEmpty "hello";;
+val it : bool = true
+
+> isNonEmpty "";;
+System.Exception: Empty string!
+...
+```
+
+As expected, we get `true` for the string `"hello"` and a `System.Exception` with "`Empty string!`" as the message.
+
+`failwith` also has a sister function `failwithf` if we want to use `printfn` style formatting when throwing an exception, for example:
+
+```fsharp
+failwithf "This many things went wrong: %i" 50
+```
+
+<note>
+
+Again, in general, we don't want to throw exceptions and we don't want to have to handle exceptions. However, sometimes exceptions are required and knowing how to work with them is extremely important.
+
+</note>
+
+## Exercises
+
+Try the following to test your understanding of the concepts in this chapter.
+
+1. Recall the two `List` module functions `List.item` and `List.tryItem`. `List.item` will throw and exception if the index is not in the list, however `List.tryItem` returns `None` if the index is invalid. Write a function called `tryReadAllLines` which has type `string -> (string list) option` which takes a path to a file as input and returns `Some` with a list of the lines of the file if the file can be read, and `None` otherwise.
+2. Similarly to the previous exercise, write a function called `tryCreateFile` which has type `string -> string option` which returns `Some` with the path to the file that was created (i.e. the input string) if the file was created, and `None` otherwise.
+3. Similarly again, write two functions `tryWriteAllLines` and `tryAppendAllLines` which each take a path to a file and a list of lines to write to the file and return an `Option` with the path to the file if the file was written to successfully.
+4. Write a `positiveAdd` function which takes two integers and adds them together if they are both positive, and throws an exception with a message stating what the negative number/numbers are.
+5. Using F# code; create a file called `numbers.txt`. Write the numbers from 1 to 1000 into the file with each number on it's own line.
+6. Download the plain text version of Romeo and Juliet from [here](https://www.gutenberg.org/cache/epub/1112/pg1112.txt). How many lines are there containing the word "Romeo"? (You can use the `.Contains` method to check if a string contains a given substring within it e.g. `"Hello World".Contains("Hello")`).
