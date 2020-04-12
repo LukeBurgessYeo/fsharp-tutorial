@@ -238,4 +238,4 @@ Try the following to test your understanding of the concepts in this chapter.
 3. Similarly again, write two functions `tryWriteAllLines` and `tryAppendAllLines` which each take a path to a file and a list of lines to write to the file and return an `Option` with the path to the file if the file was written to successfully.
 4. Write a `positiveAdd` function which takes two integers and adds them together if they are both positive, and throws an exception with a message stating what the negative number/numbers are.
 5. Using F# code; create a file called `numbers.txt`. Write the numbers from 1 to 1000 into the file with each number on it's own line.
-6. Download the plain text version of Romeo and Juliet from [here](https://www.gutenberg.org/cache/epub/1112/pg1112.txt). How many lines are there containing the word "Romeo"? (You can use the `.Contains` method to check if a string contains a given substring within it e.g. `"Hello World".Contains("Hello")`).
+6. Download the plain text version of Romeo and Juliet from [here](https://www.gutenberg.org/cache/epub/1112/pg1112.txt). How many lines are there containing the word "Romeo"?
