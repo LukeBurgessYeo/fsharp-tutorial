@@ -148,8 +148,8 @@ We've done a lot of work with lists. Let's put that knowledge to the test. Compl
 2. Write a function which takes a list of `char`s and returns a list with only those `char`s which are not vowels. You can assume that your input list only contains lower case `char`s.
 3. Write a function which takes a list of `string`s and returns a single string made up of every string in the original list separated by a ` - `. (Don't worry if there is an extra `-` at the start or end of the returned string.)
 4. Write a function which takes a list of `int`s and uses `List.fold` to find the difference between the sum of all the even numbers and the sum of all the odd numbers.
-5. Use `List.fold` to write a function identical in behavior to `List.map` - i.e. a function which takes a function (of type `'a -> 'a`) and a list (of type `'a list`) and returns a list (of type `'a list`) where each element in the returned list corresponds to applying the given function to the element at that position in the input list.
-6. Use `List.fold` to write a function identical in behavior to `List.filter`.
+5. Use `List.fold` to write a function identical in behaviour to `List.map` - i.e. a function which takes a function (of type `'a -> 'a`) and a list (of type `'a list`) and returns a list (of type `'a list`) where each element in the returned list corresponds to applying the given function to the element at that position in the input list.
+6. Use `List.fold` to write a function identical in behaviour to `List.filter`.
 
 <note>
 

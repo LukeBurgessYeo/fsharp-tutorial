@@ -4,7 +4,7 @@
 
 Input/Output, or I/O for short, is the general term used for actions such as interacting with a file system. As we discussed right at the start of this guide, programming is all about data manipulation. So far we've been creating our own data by creating lists, etc. however when we are writing programs to solve real-world problems we generally have a data source to get our data from.
 
-This data source might be from the web, a database, a local file, etc. The way in which we access each of these data sources is quite different but the general pricinples are the same. For the purposes of this chapter we will look at how to read from and write to local files, as well as the problems that can occur when doing such operations.
+This data source might be from the web, a database, a local file, etc. The way in which we access each of these data sources is quite different but the general principles are the same. For the purposes of this chapter we will look at how to read from and write to local files, as well as the problems that can occur when doing such operations.
 
 ## Reading From A File
 
@@ -71,13 +71,13 @@ This is all well and good, but what happens if the file doesn't exist? Try calli
 
 Of course, there's no way F# can read from a file that doesn't exist. Rather than doing nothing, F# "throws an exception". Believe it or not, exceptions are your friend. Exceptions occur when something goes wrong and they allow the programmer to handle them however they see fit rather than assuming what the programmer wants to do.
 
-For example, if we were writing a program which relied upon the existance of a particular file and that file didn't exist, we would probably want to tell the user that the file could not be found rather than just doing nothing and leaving the user confused about whether or not the program is working. If F# just did nothing if the file wasn't found we would have no way of notifying the user that something went wrong.
+For example, if we were writing a program which relied upon the existence of a particular file and that file didn't exist, we would probably want to tell the user that the file could not be found rather than just doing nothing and leaving the user confused about whether or not the program is working. If F# just did nothing if the file wasn't found we would have no way of notifying the user that something went wrong.
 
 Of course, whenever possible, we should be writing code that doesn't throw exceptions but in cases like reading from files we have no choice but to accept that something might go wrong and so we must handle those cases, let's look at how to do that now.
 
 ### `try ... with`
 
-In F# whenever we are doing a "risky" operation that might throw an exception - like reading from a file - it is good practice to wrap that code in a `try ... with` block. We put the risky part after the `try` and handle anything that goes wrong using `with`. Let's write a funtion which prints all the lines of a file:
+In F# whenever we are doing a "risky" operation that might throw an exception - like reading from a file - it is good practice to wrap that code in a `try ... with` block. We put the risky part after the `try` and handle anything that goes wrong using `with`. Let's write a function which prints all the lines of a file:
 
 ```fsharp {highlight: [2, 5]}
 let printAllLines fileName =
@@ -169,7 +169,7 @@ making use of the `>>` function composition operator. This is a purely cosmetic 
 
 ### Writing To Files
 
-Writing to files is again very similar to our previous operations, however we have a chocie to make. We can either write over the current contents of a file using `File.WriteAllLines`, or we could add to the end of a file using `File.AppendAllLines`:
+Writing to files is again very similar to our previous operations, however we have a choice to make. We can either write over the current contents of a file using `File.WriteAllLines`, or we could add to the end of a file using `File.AppendAllLines`:
 
 ```fsharp {highlight: [4, 9]}
 let writeFile fileName contents =
@@ -187,7 +187,7 @@ Both functions have type `string -> string list -> unit`. Notice, however, that 
 
 <note>
 
-Why do functions in the `File` module prefer `Array`? The reason is that the `System.IO` namespace was designed primarily to be used from C#, not F#. `List` is not a core type in C# whereas `Array` is. This bias towards C# is a common feature in the .NET ecosystem. Fortunately it is often very easy to write our own F# functions to make using these C#-focussed functions more natural to use in F# code, as we have done in this chapter. Doing the reverse - using F#-focussed modules in C# - can often be extremely awkward.
+Why do functions in the `File` module prefer `Array`? The reason is that the `System.IO` namespace was designed primarily to be used from C#, not F#. `List` is not a core type in C# whereas `Array` is. This bias towards C# is a common feature in the .NET ecosystem. Fortunately it is often very easy to write our own F# functions to make using these C#-focused functions more natural to use in F# code, as we have done in this chapter. Doing the reverse - using F#-focused modules in C# - can often be extremely awkward.
 
 </note>
 

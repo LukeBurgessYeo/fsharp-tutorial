@@ -62,7 +62,7 @@ let getAge user =
     user.Age
 ```
 
-`getAge` has type `User -> int`. Writing small functions like this, to get fields which are frequently accessed, can be very useful. A subtle point here is that a value of type `User` will always have an `Age` because we cannot create a `User` without asigning a value to every field.
+`getAge` has type `User -> int`. Writing small functions like this, to get fields which are frequently accessed, can be very useful. A subtle point here is that a value of type `User` will always have an `Age` because we cannot create a `User` without assigning a value to every field.
 
 We often want to get multiple fields from a record and assign them to values, this can be done in one step using "record deconstruction":
 
@@ -94,7 +94,7 @@ let updatedJohn =
         Bio = "I still suck at writing bios." }
 ```
 
-The above code creates a new record and assigns it to the value updatedJohn. This record contains the same fields as `john` but with `Age` now set to whatever the previous age was `+ 1`, as well as a different string for the `Bio`.
+The above code creates a new record and assigns it to the value `updatedJohn`. This record contains the same fields as `john` but with `Age` now set to whatever the previous age was `+ 1`, as well as a different string for the `Bio`.
 
 Equality between two records works just as we would expect. If the fields in each of the two records have the same values then the two records are equal:
 

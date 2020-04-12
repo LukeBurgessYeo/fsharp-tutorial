@@ -257,6 +257,6 @@ Complete the following:
 
 <note>
 
-A lot of the time accessing elements directly by index isn't required, but sometimes we do need to use this technqiue. In these situations it matters a great deal if the index we are using is valid. Learning how to deal with these situations will come later, but as an additional exercise maybe you could think about what we might do?
+A lot of the time accessing elements directly by index isn't required, but sometimes we do need to use this technique. In these situations it matters a great deal if the index we are using is valid. Learning how to deal with these situations will come later, but as an additional exercise maybe you could think about what we might do?
 
 </note>

@@ -149,11 +149,11 @@ Let's test your ability to manipulate strings in F#:
 2. Write a function which reverses the words in a string, i.e. inputting `"Hello World!"` returns `"World! Hello"`.
 3. Write a function which checks if a string is a "palindrome". i.e. inputting `"eye"` should return `true`.
 
-<note>
+    <note>
 
-A _palindrome_ is a string which is the same backwards as forwards when ignoring case, punctuation and spaces. You will need to filter out all non-alphanumeric characters and convert the string into either all upper or all lower case.
+    A _palindrome_ is a string which is the same backwards as forwards when ignoring case, punctuation and spaces. You will need to filter out all non-alphanumeric characters and convert the string into either all upper or all lower case.
 
-</note>
+    </note>
 
 4. Write a function which returns the longest word in a string, i.e. inputting `"one, two, three"` returns `"three"`.
 5. Write a function which takes an integer `n` and a string `str` and replicates the string `n` times with a space `" "` in between each `str`. Inputting `2 "hello"` should return `"hello hello"`.
