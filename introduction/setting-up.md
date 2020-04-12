@@ -47,3 +47,5 @@ Try searching online for any of the error messages that you see and work through
 As an alternative to setting up your local environment, you can use online F# editors. For script files you can use [Katacode](https://www.katacoda.com/courses/fsharp/playground). Just make sure to type `cd /home/scrapbook/tutoral` in the terminal before trying `fsharpi app.fsx`. Alternatively you can just type `fsharpi` in the terminal and then copy+paste your code (using the mouse) into the terminal.
 
 There is also [Repl.it](https://repl.it/languages/fsharp). However this environment compiles your code as an application so you will not get the F# Interactive outputs, or be able to run code interactively.
+
+[Microsoft Azure Notebooks](https://notebooks.azure.com/) can be used for free and has F# support.
