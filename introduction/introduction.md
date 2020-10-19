@@ -31,4 +31,4 @@ The skill is in knowing which terms to search for and which resources are likely
 - [docs.microsoft.com](https://docs.microsoft.com/en-us/dotnet/fsharp/) is the official documentation from Microsoft
 - [Tutorials Point](https://www.tutorialspoint.com/fsharp/index.htm) has another tutorial which is good but not suitable for beginners
 - [F# Programming Wikibook](https://en.wikibooks.org/wiki/F_Sharp_Programming) is another fantastic reference
-- [Stack Overflow](https://stackoverflow.com/) will almost always have the answer to your question
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/f%23) will almost always have the answer to your question
