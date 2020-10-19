@@ -28,7 +28,7 @@ Below is a list of topics that were not discussed in this guide but may be of in
 Below is a list of resources which may be of use for anyone wishing to research the above topics.
 
 - [F# Programming Wikibook](https://en.wikibooks.org/wiki/F_Sharp_Programming)
-- [FSharp for fun and profit](https://fsharpforfunandprofit.com/learning-fsharp/)
+- [F# for fun and profit](https://fsharpforfunandprofit.com/learning-fsharp/)
 - [Official F# documentation](https://docs.microsoft.com/en-us/dotnet/fsharp/)
 
 ## F# Community
