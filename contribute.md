@@ -12,11 +12,11 @@ This is an open source guide. This means that the source code is freely availabl
 
 As this guide is open source, that means you can help improve it. Before we get into how exactly to do that, we need to quickly mention impostor syndrome.
 
-### Impostor Syndrome Disclamer
+### Impostor Syndrome Disclaimer
 
 [Wikipedia](https://en.wikipedia.org/wiki/Impostor_syndrome) describes impostor syndrome as:
 
-> Impostor syndrome ... is a psychological pattern in which one doubts one's accomplishments and has a persistent internalized fear of being exposed as a "fraud".
+> Impostor syndrome ... is a psychological pattern in which one doubts one's accomplishments and has a persistent internalised fear of being exposed as a "fraud".
 
 This is extremely common amongst programmers (and other technical individuals), and often stops people from making valuable contributions to projects. In the case of this guide, your contributions are not only welcomed but encouraged.
 
@@ -72,7 +72,7 @@ $ npm install
 $ npm run start
 ```
 
-6. Open a broswer and view the site running at `http://127.0.0.1:4000` (by default).
+6. Open a browser and view the site running at `http://127.0.0.1:4000` (by default).
 7. Open the source files in a text editor and make some changes, then watch them automatically appear in the browser!
 8. Submit a [pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request)?
 

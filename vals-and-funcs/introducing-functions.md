@@ -12,7 +12,7 @@ The syntax for defining a function is almost identical to the syntax for definin
 let timesBy2 input = input * 2
 ```
 
-In the above code `timesBy2` is the name of the function, and `input` is the name of the parameter that we are passing in. We can call our functions and parameters whatever we like. To return a value from the function we just need to write the value that we want, which in this case is the input multiped by 2.
+In the above code `timesBy2` is the name of the function, and `input` is the name of the parameter that we are passing in. We can call our functions and parameters whatever we like. To return a value from the function we just need to write the value that we want, which in this case is the input multiplied by 2.
 
 We can call our function by writing the name of the function followed by the value we wish to pass in as the parameter:
 
